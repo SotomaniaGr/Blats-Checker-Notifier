@@ -60,6 +60,7 @@
             this.lblPortTool = new System.Windows.Forms.Label();
             this.txtPortTool2 = new System.Windows.Forms.TextBox();
             this.btnPortTool = new System.Windows.Forms.Button();
+            this.DropDownSelector = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelSettings.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +207,7 @@
             // 
             // panelTitle3
             // 
-            this.panelTitle3.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panelTitle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panelTitle3.Location = new System.Drawing.Point(-5, 221);
             this.panelTitle3.Name = "panelTitle3";
             this.panelTitle3.Size = new System.Drawing.Size(189, 14);
@@ -214,7 +215,7 @@
             // 
             // panelTitle2
             // 
-            this.panelTitle2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panelTitle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panelTitle2.Location = new System.Drawing.Point(-4, 98);
             this.panelTitle2.Name = "panelTitle2";
             this.panelTitle2.Size = new System.Drawing.Size(188, 14);
@@ -222,7 +223,7 @@
             // 
             // panelTitle1
             // 
-            this.panelTitle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panelTitle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panelTitle1.Location = new System.Drawing.Point(-2, 4);
             this.panelTitle1.Name = "panelTitle1";
             this.panelTitle1.Size = new System.Drawing.Size(186, 14);
@@ -328,7 +329,7 @@
             this.lblPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblPing.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPing.Location = new System.Drawing.Point(195, 188);
+            this.lblPing.Location = new System.Drawing.Point(298, 188);
             this.lblPing.Margin = new System.Windows.Forms.Padding(3);
             this.lblPing.Name = "lblPing";
             this.lblPing.Size = new System.Drawing.Size(147, 64);
@@ -339,7 +340,7 @@
             // txtPingTool
             // 
             this.txtPingTool.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPingTool.Location = new System.Drawing.Point(194, 275);
+            this.txtPingTool.Location = new System.Drawing.Point(297, 275);
             this.txtPingTool.Name = "txtPingTool";
             this.txtPingTool.Size = new System.Drawing.Size(147, 23);
             this.txtPingTool.TabIndex = 18;
@@ -361,7 +362,7 @@
             // 
             this.btnPingTool.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPingTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.btnPingTool.Location = new System.Drawing.Point(230, 300);
+            this.btnPingTool.Location = new System.Drawing.Point(333, 300);
             this.btnPingTool.Name = "btnPingTool";
             this.btnPingTool.Size = new System.Drawing.Size(62, 32);
             this.btnPingTool.TabIndex = 19;
@@ -374,7 +375,7 @@
             this.lblHostname.AutoSize = true;
             this.lblHostname.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHostname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblHostname.Location = new System.Drawing.Point(221, 260);
+            this.lblHostname.Location = new System.Drawing.Point(324, 260);
             this.lblHostname.Name = "lblHostname";
             this.lblHostname.Size = new System.Drawing.Size(96, 13);
             this.lblHostname.TabIndex = 20;
@@ -388,10 +389,10 @@
             this.lblPortChecker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblPortChecker.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPortChecker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPortChecker.Location = new System.Drawing.Point(438, 188);
+            this.lblPortChecker.Location = new System.Drawing.Point(555, 188);
             this.lblPortChecker.Margin = new System.Windows.Forms.Padding(3);
             this.lblPortChecker.Name = "lblPortChecker";
-            this.lblPortChecker.Size = new System.Drawing.Size(147, 64);
+            this.lblPortChecker.Size = new System.Drawing.Size(216, 64);
             this.lblPortChecker.TabIndex = 21;
             this.lblPortChecker.Text = "PORT CHECKER";
             this.lblPortChecker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -401,7 +402,7 @@
             this.lblHostnameIP.AutoSize = true;
             this.lblHostnameIP.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHostnameIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblHostnameIP.Location = new System.Drawing.Point(432, 260);
+            this.lblHostnameIP.Location = new System.Drawing.Point(535, 260);
             this.lblHostnameIP.Name = "lblHostnameIP";
             this.lblHostnameIP.Size = new System.Drawing.Size(96, 13);
             this.lblHostnameIP.TabIndex = 22;
@@ -410,7 +411,7 @@
             // txtPortTool
             // 
             this.txtPortTool.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPortTool.Location = new System.Drawing.Point(420, 275);
+            this.txtPortTool.Location = new System.Drawing.Point(523, 275);
             this.txtPortTool.Name = "txtPortTool";
             this.txtPortTool.Size = new System.Drawing.Size(119, 23);
             this.txtPortTool.TabIndex = 23;
@@ -422,7 +423,7 @@
             this.lblPortTool.AutoSize = true;
             this.lblPortTool.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPortTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPortTool.Location = new System.Drawing.Point(549, 259);
+            this.lblPortTool.Location = new System.Drawing.Point(652, 260);
             this.lblPortTool.Name = "lblPortTool";
             this.lblPortTool.Size = new System.Drawing.Size(38, 13);
             this.lblPortTool.TabIndex = 24;
@@ -431,7 +432,7 @@
             // txtPortTool2
             // 
             this.txtPortTool2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPortTool2.Location = new System.Drawing.Point(545, 275);
+            this.txtPortTool2.Location = new System.Drawing.Point(648, 275);
             this.txtPortTool2.Name = "txtPortTool2";
             this.txtPortTool2.Size = new System.Drawing.Size(46, 23);
             this.txtPortTool2.TabIndex = 25;
@@ -442,13 +443,41 @@
             // 
             this.btnPortTool.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPortTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.btnPortTool.Location = new System.Drawing.Point(463, 300);
+            this.btnPortTool.Location = new System.Drawing.Point(614, 300);
             this.btnPortTool.Name = "btnPortTool";
             this.btnPortTool.Size = new System.Drawing.Size(94, 32);
             this.btnPortTool.TabIndex = 26;
             this.btnPortTool.Text = "CHECK";
             this.btnPortTool.UseVisualStyleBackColor = true;
             this.btnPortTool.Click += new System.EventHandler(this.btnPortTool_Click);
+            // 
+            // DropDownSelector
+            // 
+            this.DropDownSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DropDownSelector.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DropDownSelector.FormattingEnabled = true;
+            this.DropDownSelector.Items.AddRange(new object[] {
+            "FTP - 21",
+            "SSH - 22",
+            "Telnet - 23",
+            "SMTP - 25",
+            "DNS - 53",
+            "HTTP - 80",
+            "POP3 - 110",
+            "SFTP - 115",
+            "IMAP - 143",
+            "HTTPS/SSL - 443",
+            "SMTPS - 465",
+            "IMAPS - 993",
+            "POP3S - 995",
+            "MYSQL - 3306",
+            "REDIS - 6379",
+            "VNC - 5900"});
+            this.DropDownSelector.Location = new System.Drawing.Point(700, 276);
+            this.DropDownSelector.Name = "DropDownSelector";
+            this.DropDownSelector.Size = new System.Drawing.Size(117, 22);
+            this.DropDownSelector.TabIndex = 28;
+            this.DropDownSelector.SelectedValueChanged += new System.EventHandler(this.DropDownSelector_SelectedValueChanged);
             // 
             // Form1
             // 
@@ -457,6 +486,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1052, 694);
             this.ControlBox = false;
+            this.Controls.Add(this.DropDownSelector);
             this.Controls.Add(this.btnPortTool);
             this.Controls.Add(this.txtPortTool2);
             this.Controls.Add(this.lblPortTool);
@@ -521,5 +551,6 @@
         private Label lblPortTool;
         private TextBox txtPortTool2;
         private Button btnPortTool;
+        private ComboBox DropDownSelector;
     }
 }

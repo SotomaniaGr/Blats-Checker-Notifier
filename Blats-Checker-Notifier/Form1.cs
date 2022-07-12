@@ -157,6 +157,7 @@ namespace Blats_Checker_Notifier
 
         #endregion
 
+
         #region Tools
 
         private void btnPingTool_Click(object sender, EventArgs e)
@@ -201,8 +202,8 @@ namespace Blats_Checker_Notifier
             }
             catch (System.Net.Sockets.SocketException ex)
             {
-                if (ex.ErrorCode == 10061)  // Port is unused and could not establish connection 
-                    lblResultPingTool.Text = lblResultPingTool.Text = "Checking port " + txtPortTool2.Text + " at " + txtPortTool.Text + ": Port is Closed.";
+                if (ex.ErrorCode == 10060)  // Port is unused and could not establish connection 
+                    lblResultPingTool.Text = "Checking port " + txtPortTool2.Text + " at " + txtPortTool.Text + ": Port is Closed.";
                 else
                     lblResultPingTool.Text = "Error occured with ip/hostname or port.";
             }
@@ -212,6 +213,75 @@ namespace Blats_Checker_Notifier
                     lblResultPingTool.Text = "You need to enter ip or hostname. IP field cannot be blank.";
                 else if (string.IsNullOrWhiteSpace(txtPortTool2.Text) || txtPortTool2.Text == "")
                     lblResultPingTool.Text = "You need to enter port number. Port field cannot be blank.";
+            }
+
+        }
+
+        private void DropDownSelector_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (DropDownSelector.SelectedIndex == 0)
+            {
+                txtPortTool2.Text = "21";
+            }
+            else if (DropDownSelector.SelectedIndex == 1)
+            {
+                txtPortTool2.Text = "22";
+            }
+            else if (DropDownSelector.SelectedIndex == 2)
+            {
+                txtPortTool2.Text = "23";
+            }
+            else if (DropDownSelector.SelectedIndex == 3)
+            {
+                txtPortTool2.Text = "25";
+            }
+            else if (DropDownSelector.SelectedIndex == 4)
+            {
+                txtPortTool2.Text = "53";
+            }
+            else if (DropDownSelector.SelectedIndex == 5)
+            {
+                txtPortTool2.Text = "80";
+            }
+            else if (DropDownSelector.SelectedIndex == 6)
+            {
+                txtPortTool2.Text = "110";
+            }
+            else if (DropDownSelector.SelectedIndex == 7)
+            {
+                txtPortTool2.Text = "115";
+            }
+            else if (DropDownSelector.SelectedIndex == 8)
+            {
+                txtPortTool2.Text = "143";
+            }
+            else if (DropDownSelector.SelectedIndex == 9)
+            {
+                txtPortTool2.Text = "443";
+            }
+            else if (DropDownSelector.SelectedIndex == 10)
+            {
+                txtPortTool2.Text = "465";
+            }
+            else if (DropDownSelector.SelectedIndex == 11)
+            {
+                txtPortTool2.Text = "993";
+            }
+            else if (DropDownSelector.SelectedIndex == 12)
+            {
+                txtPortTool2.Text = "995";
+            }
+            else if (DropDownSelector.SelectedIndex == 13)
+            {
+                txtPortTool2.Text = "3306";
+            }
+            else if (DropDownSelector.SelectedIndex == 14)
+            {
+                txtPortTool2.Text = "6379";
+            }
+            else if (DropDownSelector.SelectedIndex == 15)
+            {
+                txtPortTool2.Text = "5900";
             }
         }
 
