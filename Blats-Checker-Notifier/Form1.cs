@@ -11,7 +11,6 @@ namespace Blats_Checker_Notifier
         int seconds = 60;
         public bool dark, light;
 
-        public SmtpDeliveryMethod SmtpDeliveryMethod { get; private set; }
 
         public Form1()
         {
