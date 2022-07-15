@@ -16,6 +16,8 @@ namespace Blats_Checker_Notifier
         {
             InitializeComponent();
             panelSettings.Height = 0;
+            panelPing.Width = 0;
+            panelPort.Width = 0;
             InitTimer();
             InitTimer2();
         }
@@ -53,13 +55,15 @@ namespace Blats_Checker_Notifier
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            if (panelSettings.Height == 449)
+            if (panelSettings.Height == 563)
             {
                 panelSettings.Height = 0;
+                panelPing.Width = 0;
+                panelPort.Width = 0;
             }
             else
             {
-                panelSettings.Height = 449;
+                panelSettings.Height = 563;
             }
         }
 
@@ -69,6 +73,8 @@ namespace Blats_Checker_Notifier
             light = false;
             BackColor = SystemColors.WindowFrame;
             panelSettings.BackColor = Color.FromArgb(76, 87, 146);
+            panelPing.BackColor = Color.FromArgb(76, 87, 146);
+            panelPort.BackColor = Color.FromArgb(76, 87, 146);
         }
 
         private void btnLight_Click(object sender, EventArgs e)
@@ -77,6 +83,8 @@ namespace Blats_Checker_Notifier
             dark = false;
             BackColor = SystemColors.Control;
             panelSettings.BackColor = SystemColors.InactiveCaption;
+            panelPing.BackColor = SystemColors.InactiveCaption;
+            panelPort.BackColor = SystemColors.InactiveCaption;
         }
 
         private void btnSettings_MouseHover(object sender, EventArgs e)
@@ -87,6 +95,30 @@ namespace Blats_Checker_Notifier
         private void btnSettings_MouseLeave(object sender, EventArgs e)
         {
             btnSettings.ForeColor = Color.FromArgb(60, 150, 200);
+        }
+
+        private void btnPing_Click(object sender, EventArgs e)
+        {
+            if (panelPing.Width == 1208)
+            {
+                panelPing.Width = 0;
+            }
+            else
+            {
+                panelPing.Width = 1208;
+            }
+        }
+
+        private void btnPort_Click(object sender, EventArgs e)
+        {
+            if (panelPort.Width == 1208)
+            {
+                panelPort.Width = 0;
+            }
+            else
+            {
+                panelPort.Width = 1208;
+            }
         }
 
         #endregion
@@ -171,13 +203,13 @@ namespace Blats_Checker_Notifier
             {
                 MailMessage newMail = new MailMessage();
                 // use the Gmail SMTP Host
-                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
                 // Follow the RFS 5321 Email Standard
-                newMail.From = new MailAddress("blatsnotifications@gmail.com", "blats BLATS");
+                newMail.From = new MailAddress(txtEmailFrom.Text);
 
-                newMail.To.Add("blats.gr@hotmail.com");
+                newMail.To.Add(txtEmailTo.Text);
 
                 newMail.Subject = "My First Email"; // declare the email subject
 
@@ -187,12 +219,12 @@ namespace Blats_Checker_Notifier
                 // enable SSL for encryption across channels
                 client.EnableSsl = true;
                 // Port 465 for SSL communication
-                client.Port = 465;
+                client.Port = 587;
                 // Provide authentication information with Gmail SMTP server to authenticate your sender account
-                client.Credentials = new System.Net.NetworkCredential("blatsnotifications@gmail.com", "Blats1604!");
+                client.Credentials = new System.Net.NetworkCredential(txtEmailFrom.Text, txtEmailPassFrom.Text);
 
                 client.Send(newMail); // Send the constructed mail
-                lblResultPingTool.Text = "mail Send";
+                lblResultPingTool.Text = "An error has been detected on one of your servers. An email was sent successfully.";
             }
             catch (Exception ex)
             {
@@ -256,6 +288,8 @@ namespace Blats_Checker_Notifier
             }
 
         }
+
+
 
         private void DropDownSelector_SelectedValueChanged(object sender, EventArgs e)
         {
