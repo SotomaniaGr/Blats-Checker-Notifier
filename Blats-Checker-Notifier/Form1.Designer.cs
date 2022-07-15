@@ -43,7 +43,7 @@
             this.panelTitle1 = new System.Windows.Forms.Panel();
             this.txtEmailTo = new System.Windows.Forms.TextBox();
             this.lblEmailTo = new System.Windows.Forms.Label();
-            this.lblEmailFrom = new System.Windows.Forms.Label();
+            this.lblSenderEmail = new System.Windows.Forms.Label();
             this.txtEmailFrom = new System.Windows.Forms.TextBox();
             this.lblEmails = new System.Windows.Forms.Label();
             this.btnLight = new System.Windows.Forms.Button();
@@ -61,6 +61,8 @@
             this.txtPortTool2 = new System.Windows.Forms.TextBox();
             this.btnPortTool = new System.Windows.Forms.Button();
             this.DropDownSelector = new System.Windows.Forms.ComboBox();
+            this.lblSenderPass = new System.Windows.Forms.Label();
+            this.txtEmailPassFrom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelSettings.SuspendLayout();
             this.SuspendLayout();
@@ -177,13 +179,15 @@
             // panelSettings
             // 
             this.panelSettings.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelSettings.Controls.Add(this.txtEmailPassFrom);
+            this.panelSettings.Controls.Add(this.lblSenderPass);
             this.panelSettings.Controls.Add(this.lblTools);
             this.panelSettings.Controls.Add(this.panelTitle3);
             this.panelSettings.Controls.Add(this.panelTitle2);
             this.panelSettings.Controls.Add(this.panelTitle1);
             this.panelSettings.Controls.Add(this.txtEmailTo);
             this.panelSettings.Controls.Add(this.lblEmailTo);
-            this.panelSettings.Controls.Add(this.lblEmailFrom);
+            this.panelSettings.Controls.Add(this.lblSenderEmail);
             this.panelSettings.Controls.Add(this.txtEmailFrom);
             this.panelSettings.Controls.Add(this.lblEmails);
             this.panelSettings.Controls.Add(this.btnLight);
@@ -199,7 +203,7 @@
             this.lblTools.AutoSize = true;
             this.lblTools.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblTools.Location = new System.Drawing.Point(23, 236);
+            this.lblTools.Location = new System.Drawing.Point(23, 279);
             this.lblTools.Name = "lblTools";
             this.lblTools.Size = new System.Drawing.Size(124, 18);
             this.lblTools.TabIndex = 12;
@@ -208,7 +212,7 @@
             // panelTitle3
             // 
             this.panelTitle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panelTitle3.Location = new System.Drawing.Point(-5, 221);
+            this.panelTitle3.Location = new System.Drawing.Point(-5, 264);
             this.panelTitle3.Name = "panelTitle3";
             this.panelTitle3.Size = new System.Drawing.Size(189, 14);
             this.panelTitle3.TabIndex = 11;
@@ -232,7 +236,7 @@
             // txtEmailTo
             // 
             this.txtEmailTo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmailTo.Location = new System.Drawing.Point(1, 201);
+            this.txtEmailTo.Location = new System.Drawing.Point(1, 244);
             this.txtEmailTo.Name = "txtEmailTo";
             this.txtEmailTo.Size = new System.Drawing.Size(170, 16);
             this.txtEmailTo.TabIndex = 7;
@@ -242,22 +246,22 @@
             this.lblEmailTo.AutoSize = true;
             this.lblEmailTo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmailTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblEmailTo.Location = new System.Drawing.Point(53, 185);
+            this.lblEmailTo.Location = new System.Drawing.Point(53, 228);
             this.lblEmailTo.Name = "lblEmailTo";
             this.lblEmailTo.Size = new System.Drawing.Size(58, 14);
             this.lblEmailTo.TabIndex = 6;
             this.lblEmailTo.Text = "Email To";
             // 
-            // lblEmailFrom
+            // lblSenderEmail
             // 
-            this.lblEmailFrom.AutoSize = true;
-            this.lblEmailFrom.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmailFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblEmailFrom.Location = new System.Drawing.Point(45, 149);
-            this.lblEmailFrom.Name = "lblEmailFrom";
-            this.lblEmailFrom.Size = new System.Drawing.Size(75, 14);
-            this.lblEmailFrom.TabIndex = 5;
-            this.lblEmailFrom.Text = "Email From";
+            this.lblSenderEmail.AutoSize = true;
+            this.lblSenderEmail.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSenderEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblSenderEmail.Location = new System.Drawing.Point(0, 149);
+            this.lblSenderEmail.Name = "lblSenderEmail";
+            this.lblSenderEmail.Size = new System.Drawing.Size(173, 14);
+            this.lblSenderEmail.TabIndex = 5;
+            this.lblSenderEmail.Text = "Senders Email (only gmail)";
             // 
             // txtEmailFrom
             // 
@@ -479,6 +483,26 @@
             this.DropDownSelector.TabIndex = 28;
             this.DropDownSelector.SelectedValueChanged += new System.EventHandler(this.DropDownSelector_SelectedValueChanged);
             // 
+            // lblSenderPass
+            // 
+            this.lblSenderPass.AutoSize = true;
+            this.lblSenderPass.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSenderPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblSenderPass.Location = new System.Drawing.Point(24, 186);
+            this.lblSenderPass.Name = "lblSenderPass";
+            this.lblSenderPass.Size = new System.Drawing.Size(125, 14);
+            this.lblSenderPass.TabIndex = 13;
+            this.lblSenderPass.Text = "Senders Password";
+            // 
+            // txtEmailPassFrom
+            // 
+            this.txtEmailPassFrom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmailPassFrom.Location = new System.Drawing.Point(2, 203);
+            this.txtEmailPassFrom.Name = "txtEmailPassFrom";
+            this.txtEmailPassFrom.PasswordChar = '*';
+            this.txtEmailPassFrom.Size = new System.Drawing.Size(170, 16);
+            this.txtEmailPassFrom.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -535,7 +559,7 @@
         private Label lblEmails;
         private TextBox txtEmailTo;
         private Label lblEmailTo;
-        private Label lblEmailFrom;
+        private Label lblSenderEmail;
         private Panel panelTitle1;
         private Panel panelTitle3;
         private Panel panelTitle2;
@@ -552,5 +576,7 @@
         private TextBox txtPortTool2;
         private Button btnPortTool;
         private ComboBox DropDownSelector;
+        private TextBox txtEmailPassFrom;
+        private Label lblSenderPass;
     }
 }

@@ -1,5 +1,6 @@
 using System.Net.NetworkInformation;
 using System.Net;
+using System.Net.Mail;
 namespace Blats_Checker_Notifier
 {
     public partial class Form1 : Form
@@ -9,6 +10,9 @@ namespace Blats_Checker_Notifier
         int minutes = 0;
         int seconds = 60;
         public bool dark, light;
+
+        public SmtpDeliveryMethod SmtpDeliveryMethod { get; private set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -151,6 +155,7 @@ namespace Blats_Checker_Notifier
                 {
                     timer2.Stop();
                     lblChecker.Text = ("Status OK!");
+                    EmailSender();
                 }
             }
         }
@@ -159,6 +164,42 @@ namespace Blats_Checker_Notifier
 
 
         #region Tools
+
+        private void EmailSender()
+        {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+            try
+            {
+                MailMessage newMail = new MailMessage();
+                // use the Gmail SMTP Host
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                // Follow the RFS 5321 Email Standard
+                newMail.From = new MailAddress("blatsnotifications@gmail.com", "blats BLATS");
+
+                newMail.To.Add("blats.gr@hotmail.com");
+
+                newMail.Subject = "My First Email"; // declare the email subject
+
+                newMail.IsBodyHtml = true; newMail.Body = "<h1> This is my first Templated Email in C# </h1>"; // use HTML for the email body
+
+
+                // enable SSL for encryption across channels
+                client.EnableSsl = true;
+                // Port 465 for SSL communication
+                client.Port = 465;
+                // Provide authentication information with Gmail SMTP server to authenticate your sender account
+                client.Credentials = new System.Net.NetworkCredential("blatsnotifications@gmail.com", "Blats1604!");
+
+                client.Send(newMail); // Send the constructed mail
+                lblResultPingTool.Text = "mail Send";
+            }
+            catch (Exception ex)
+            {
+                lblResultPingTool.Text = (ex.ToString());
+            }
+        }
 
         private void btnPingTool_Click(object sender, EventArgs e)
         {
