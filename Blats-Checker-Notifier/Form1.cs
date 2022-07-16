@@ -289,7 +289,10 @@ namespace Blats_Checker_Notifier
 
         }
 
+        private void panelPort_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
         private void DropDownSelector_SelectedValueChanged(object sender, EventArgs e)
         {
