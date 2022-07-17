@@ -69,6 +69,11 @@
             this.btnPortTool = new System.Windows.Forms.Button();
             this.DropDownSelector = new System.Windows.Forms.ComboBox();
             this.panelPing = new System.Windows.Forms.Panel();
+            this.lblIPHostname5 = new System.Windows.Forms.Label();
+            this.lblIPHostname4 = new System.Windows.Forms.Label();
+            this.lblIPHostname3 = new System.Windows.Forms.Label();
+            this.lblIPHostname2 = new System.Windows.Forms.Label();
+            this.lblIPHostname = new System.Windows.Forms.Label();
             this.txtPing10 = new System.Windows.Forms.TextBox();
             this.lblPing10 = new System.Windows.Forms.Label();
             this.txtPing9 = new System.Windows.Forms.TextBox();
@@ -92,6 +97,34 @@
             this.panelTitle5 = new System.Windows.Forms.Panel();
             this.lblPingSettings = new System.Windows.Forms.Label();
             this.panelPort = new System.Windows.Forms.Panel();
+            this.lblPort5 = new System.Windows.Forms.Label();
+            this.lblPort4 = new System.Windows.Forms.Label();
+            this.lblPort3 = new System.Windows.Forms.Label();
+            this.lblPort2 = new System.Windows.Forms.Label();
+            this.lblPort = new System.Windows.Forms.Label();
+            this.lblIPHostname10 = new System.Windows.Forms.Label();
+            this.lblIPHostname9 = new System.Windows.Forms.Label();
+            this.lblIPHostname8 = new System.Windows.Forms.Label();
+            this.lblIPHostname7 = new System.Windows.Forms.Label();
+            this.lblIPHostname6 = new System.Windows.Forms.Label();
+            this.txtPort10 = new System.Windows.Forms.TextBox();
+            this.txtPortIP10 = new System.Windows.Forms.TextBox();
+            this.txtPort9 = new System.Windows.Forms.TextBox();
+            this.txtPortIP9 = new System.Windows.Forms.TextBox();
+            this.txtPort8 = new System.Windows.Forms.TextBox();
+            this.txtPortIP8 = new System.Windows.Forms.TextBox();
+            this.txtPort7 = new System.Windows.Forms.TextBox();
+            this.txtPortIP7 = new System.Windows.Forms.TextBox();
+            this.txtPort6 = new System.Windows.Forms.TextBox();
+            this.txtPortIP6 = new System.Windows.Forms.TextBox();
+            this.txtPort5 = new System.Windows.Forms.TextBox();
+            this.txtPortIP5 = new System.Windows.Forms.TextBox();
+            this.txtPort4 = new System.Windows.Forms.TextBox();
+            this.txtPortIP4 = new System.Windows.Forms.TextBox();
+            this.txtPort3 = new System.Windows.Forms.TextBox();
+            this.txtPortIP3 = new System.Windows.Forms.TextBox();
+            this.txtPort2 = new System.Windows.Forms.TextBox();
+            this.txtPortIP2 = new System.Windows.Forms.TextBox();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.lbl10Port = new System.Windows.Forms.Label();
             this.lbl9Port = new System.Windows.Forms.Label();
@@ -106,39 +139,6 @@
             this.lbl1Port = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblPortSettings = new System.Windows.Forms.Label();
-            this.txtPort2 = new System.Windows.Forms.TextBox();
-            this.txtPortIP2 = new System.Windows.Forms.TextBox();
-            this.txtPort3 = new System.Windows.Forms.TextBox();
-            this.txtPortIP3 = new System.Windows.Forms.TextBox();
-            this.txtPort4 = new System.Windows.Forms.TextBox();
-            this.txtPortIP4 = new System.Windows.Forms.TextBox();
-            this.txtPort5 = new System.Windows.Forms.TextBox();
-            this.txtPortIP5 = new System.Windows.Forms.TextBox();
-            this.txtPort6 = new System.Windows.Forms.TextBox();
-            this.txtPortIP6 = new System.Windows.Forms.TextBox();
-            this.txtPort7 = new System.Windows.Forms.TextBox();
-            this.txtPortIP7 = new System.Windows.Forms.TextBox();
-            this.txtPort8 = new System.Windows.Forms.TextBox();
-            this.txtPortIP8 = new System.Windows.Forms.TextBox();
-            this.txtPort9 = new System.Windows.Forms.TextBox();
-            this.txtPortIP9 = new System.Windows.Forms.TextBox();
-            this.txtPort10 = new System.Windows.Forms.TextBox();
-            this.txtPortIP10 = new System.Windows.Forms.TextBox();
-            this.lblIPHostname = new System.Windows.Forms.Label();
-            this.lblIPHostname2 = new System.Windows.Forms.Label();
-            this.lblIPHostname3 = new System.Windows.Forms.Label();
-            this.lblIPHostname4 = new System.Windows.Forms.Label();
-            this.lblIPHostname5 = new System.Windows.Forms.Label();
-            this.lblIPHostname6 = new System.Windows.Forms.Label();
-            this.lblIPHostname7 = new System.Windows.Forms.Label();
-            this.lblIPHostname8 = new System.Windows.Forms.Label();
-            this.lblIPHostname9 = new System.Windows.Forms.Label();
-            this.lblIPHostname10 = new System.Windows.Forms.Label();
-            this.lblPort = new System.Windows.Forms.Label();
-            this.lblPort2 = new System.Windows.Forms.Label();
-            this.lblPort3 = new System.Windows.Forms.Label();
-            this.lblPort4 = new System.Windows.Forms.Label();
-            this.lblPort5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelSettings.SuspendLayout();
             this.panelPing.SuspendLayout();
@@ -300,6 +300,7 @@
             this.btnLoad.TabIndex = 7;
             this.btnLoad.Text = "LOAD";
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnSave
             // 
@@ -316,6 +317,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panelTitle4
             // 
@@ -636,6 +638,8 @@
             this.txtPortTool2.TabIndex = 4;
             this.txtPortTool2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPortTool2.UseWaitCursor = true;
+            this.txtPortTool2.TextChanged += new System.EventHandler(this.txtPortTool2_TextChanged);
+            this.txtPortTool2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPortTool2_KeyPress);
             // 
             // btnPortTool
             // 
@@ -713,6 +717,61 @@
             this.panelPing.Name = "panelPing";
             this.panelPing.Size = new System.Drawing.Size(1208, 94);
             this.panelPing.TabIndex = 25;
+            // 
+            // lblIPHostname5
+            // 
+            this.lblIPHostname5.AutoSize = true;
+            this.lblIPHostname5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname5.Location = new System.Drawing.Point(1008, 48);
+            this.lblIPHostname5.Name = "lblIPHostname5";
+            this.lblIPHostname5.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname5.TabIndex = 91;
+            this.lblIPHostname5.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname4
+            // 
+            this.lblIPHostname4.AutoSize = true;
+            this.lblIPHostname4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname4.Location = new System.Drawing.Point(779, 49);
+            this.lblIPHostname4.Name = "lblIPHostname4";
+            this.lblIPHostname4.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname4.TabIndex = 90;
+            this.lblIPHostname4.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname3
+            // 
+            this.lblIPHostname3.AutoSize = true;
+            this.lblIPHostname3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname3.Location = new System.Drawing.Point(559, 49);
+            this.lblIPHostname3.Name = "lblIPHostname3";
+            this.lblIPHostname3.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname3.TabIndex = 89;
+            this.lblIPHostname3.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname2
+            // 
+            this.lblIPHostname2.AutoSize = true;
+            this.lblIPHostname2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname2.Location = new System.Drawing.Point(329, 49);
+            this.lblIPHostname2.Name = "lblIPHostname2";
+            this.lblIPHostname2.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname2.TabIndex = 88;
+            this.lblIPHostname2.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname
+            // 
+            this.lblIPHostname.AutoSize = true;
+            this.lblIPHostname.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname.Location = new System.Drawing.Point(102, 48);
+            this.lblIPHostname.Name = "lblIPHostname";
+            this.lblIPHostname.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname.TabIndex = 87;
+            this.lblIPHostname.Text = "IP / HOSTNAME";
             // 
             // txtPing10
             // 
@@ -929,7 +988,7 @@
             this.lblPingSettings.AutoSize = true;
             this.lblPingSettings.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPingSettings.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPingSettings.Location = new System.Drawing.Point(537, 3);
+            this.lblPingSettings.Location = new System.Drawing.Point(537, 4);
             this.lblPingSettings.Name = "lblPingSettings";
             this.lblPingSettings.Size = new System.Drawing.Size(145, 25);
             this.lblPingSettings.TabIndex = 66;
@@ -984,7 +1043,296 @@
             this.panelPort.Name = "panelPort";
             this.panelPort.Size = new System.Drawing.Size(1208, 95);
             this.panelPort.TabIndex = 26;
-            this.panelPort.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPort_Paint);
+            // 
+            // lblPort5
+            // 
+            this.lblPort5.AutoSize = true;
+            this.lblPort5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPort5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblPort5.Location = new System.Drawing.Point(1124, 49);
+            this.lblPort5.Name = "lblPort5";
+            this.lblPort5.Size = new System.Drawing.Size(42, 16);
+            this.lblPort5.TabIndex = 115;
+            this.lblPort5.Text = "PORT";
+            // 
+            // lblPort4
+            // 
+            this.lblPort4.AutoSize = true;
+            this.lblPort4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPort4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblPort4.Location = new System.Drawing.Point(890, 49);
+            this.lblPort4.Name = "lblPort4";
+            this.lblPort4.Size = new System.Drawing.Size(42, 16);
+            this.lblPort4.TabIndex = 114;
+            this.lblPort4.Text = "PORT";
+            // 
+            // lblPort3
+            // 
+            this.lblPort3.AutoSize = true;
+            this.lblPort3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPort3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblPort3.Location = new System.Drawing.Point(664, 49);
+            this.lblPort3.Name = "lblPort3";
+            this.lblPort3.Size = new System.Drawing.Size(42, 16);
+            this.lblPort3.TabIndex = 113;
+            this.lblPort3.Text = "PORT";
+            // 
+            // lblPort2
+            // 
+            this.lblPort2.AutoSize = true;
+            this.lblPort2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPort2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblPort2.Location = new System.Drawing.Point(437, 49);
+            this.lblPort2.Name = "lblPort2";
+            this.lblPort2.Size = new System.Drawing.Size(42, 16);
+            this.lblPort2.TabIndex = 112;
+            this.lblPort2.Text = "PORT";
+            // 
+            // lblPort
+            // 
+            this.lblPort.AutoSize = true;
+            this.lblPort.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblPort.Location = new System.Drawing.Point(207, 49);
+            this.lblPort.Name = "lblPort";
+            this.lblPort.Size = new System.Drawing.Size(42, 16);
+            this.lblPort.TabIndex = 111;
+            this.lblPort.Text = "PORT";
+            // 
+            // lblIPHostname10
+            // 
+            this.lblIPHostname10.AutoSize = true;
+            this.lblIPHostname10.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname10.Location = new System.Drawing.Point(983, 49);
+            this.lblIPHostname10.Name = "lblIPHostname10";
+            this.lblIPHostname10.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname10.TabIndex = 110;
+            this.lblIPHostname10.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname9
+            // 
+            this.lblIPHostname9.AutoSize = true;
+            this.lblIPHostname9.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname9.Location = new System.Drawing.Point(752, 49);
+            this.lblIPHostname9.Name = "lblIPHostname9";
+            this.lblIPHostname9.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname9.TabIndex = 109;
+            this.lblIPHostname9.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname8
+            // 
+            this.lblIPHostname8.AutoSize = true;
+            this.lblIPHostname8.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname8.Location = new System.Drawing.Point(531, 49);
+            this.lblIPHostname8.Name = "lblIPHostname8";
+            this.lblIPHostname8.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname8.TabIndex = 108;
+            this.lblIPHostname8.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname7
+            // 
+            this.lblIPHostname7.AutoSize = true;
+            this.lblIPHostname7.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname7.Location = new System.Drawing.Point(299, 49);
+            this.lblIPHostname7.Name = "lblIPHostname7";
+            this.lblIPHostname7.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname7.TabIndex = 107;
+            this.lblIPHostname7.Text = "IP / HOSTNAME";
+            // 
+            // lblIPHostname6
+            // 
+            this.lblIPHostname6.AutoSize = true;
+            this.lblIPHostname6.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIPHostname6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblIPHostname6.Location = new System.Drawing.Point(69, 49);
+            this.lblIPHostname6.Name = "lblIPHostname6";
+            this.lblIPHostname6.Size = new System.Drawing.Size(110, 16);
+            this.lblIPHostname6.TabIndex = 106;
+            this.lblIPHostname6.Text = "IP / HOSTNAME";
+            // 
+            // txtPort10
+            // 
+            this.txtPort10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort10.Location = new System.Drawing.Point(1124, 66);
+            this.txtPort10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort10.Name = "txtPort10";
+            this.txtPort10.Size = new System.Drawing.Size(54, 20);
+            this.txtPort10.TabIndex = 105;
+            this.txtPort10.TextChanged += new System.EventHandler(this.txtPort10_TextChanged);
+            this.txtPort10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort10_KeyPress);
+            // 
+            // txtPortIP10
+            // 
+            this.txtPortIP10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP10.Location = new System.Drawing.Point(983, 66);
+            this.txtPortIP10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP10.Name = "txtPortIP10";
+            this.txtPortIP10.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP10.TabIndex = 104;
+            // 
+            // txtPort9
+            // 
+            this.txtPort9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort9.Location = new System.Drawing.Point(884, 67);
+            this.txtPort9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort9.Name = "txtPort9";
+            this.txtPort9.Size = new System.Drawing.Size(54, 20);
+            this.txtPort9.TabIndex = 103;
+            this.txtPort9.TextChanged += new System.EventHandler(this.txtPort9_TextChanged);
+            this.txtPort9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort9_KeyPress);
+            // 
+            // txtPortIP9
+            // 
+            this.txtPortIP9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP9.Location = new System.Drawing.Point(743, 67);
+            this.txtPortIP9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP9.Name = "txtPortIP9";
+            this.txtPortIP9.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP9.TabIndex = 102;
+            // 
+            // txtPort8
+            // 
+            this.txtPort8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort8.Location = new System.Drawing.Point(658, 66);
+            this.txtPort8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort8.Name = "txtPort8";
+            this.txtPort8.Size = new System.Drawing.Size(54, 20);
+            this.txtPort8.TabIndex = 101;
+            this.txtPort8.TextChanged += new System.EventHandler(this.txtPort8_TextChanged);
+            this.txtPort8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort8_KeyPress);
+            // 
+            // txtPortIP8
+            // 
+            this.txtPortIP8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP8.Location = new System.Drawing.Point(517, 66);
+            this.txtPortIP8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP8.Name = "txtPortIP8";
+            this.txtPortIP8.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP8.TabIndex = 100;
+            // 
+            // txtPort7
+            // 
+            this.txtPort7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort7.Location = new System.Drawing.Point(431, 67);
+            this.txtPort7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort7.Name = "txtPort7";
+            this.txtPort7.Size = new System.Drawing.Size(54, 20);
+            this.txtPort7.TabIndex = 99;
+            this.txtPort7.TextChanged += new System.EventHandler(this.txtPort7_TextChanged);
+            this.txtPort7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort7_KeyPress);
+            // 
+            // txtPortIP7
+            // 
+            this.txtPortIP7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP7.Location = new System.Drawing.Point(290, 67);
+            this.txtPortIP7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP7.Name = "txtPortIP7";
+            this.txtPortIP7.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP7.TabIndex = 98;
+            // 
+            // txtPort6
+            // 
+            this.txtPort6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort6.Location = new System.Drawing.Point(200, 67);
+            this.txtPort6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort6.Name = "txtPort6";
+            this.txtPort6.Size = new System.Drawing.Size(54, 20);
+            this.txtPort6.TabIndex = 97;
+            this.txtPort6.TextChanged += new System.EventHandler(this.txtPort6_TextChanged);
+            this.txtPort6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort6_KeyPress);
+            // 
+            // txtPortIP6
+            // 
+            this.txtPortIP6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP6.Location = new System.Drawing.Point(59, 67);
+            this.txtPortIP6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP6.Name = "txtPortIP6";
+            this.txtPortIP6.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP6.TabIndex = 96;
+            // 
+            // txtPort5
+            // 
+            this.txtPort5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort5.Location = new System.Drawing.Point(1110, 28);
+            this.txtPort5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort5.Name = "txtPort5";
+            this.txtPort5.Size = new System.Drawing.Size(54, 20);
+            this.txtPort5.TabIndex = 95;
+            this.txtPort5.TextChanged += new System.EventHandler(this.txtPort5_TextChanged);
+            this.txtPort5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort5_KeyPress);
+            // 
+            // txtPortIP5
+            // 
+            this.txtPortIP5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP5.Location = new System.Drawing.Point(969, 28);
+            this.txtPortIP5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP5.Name = "txtPortIP5";
+            this.txtPortIP5.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP5.TabIndex = 94;
+            // 
+            // txtPort4
+            // 
+            this.txtPort4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort4.Location = new System.Drawing.Point(883, 27);
+            this.txtPort4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort4.Name = "txtPort4";
+            this.txtPort4.Size = new System.Drawing.Size(54, 20);
+            this.txtPort4.TabIndex = 93;
+            this.txtPort4.TextChanged += new System.EventHandler(this.txtPort4_TextChanged);
+            this.txtPort4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort4_KeyPress);
+            // 
+            // txtPortIP4
+            // 
+            this.txtPortIP4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP4.Location = new System.Drawing.Point(742, 27);
+            this.txtPortIP4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP4.Name = "txtPortIP4";
+            this.txtPortIP4.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP4.TabIndex = 92;
+            // 
+            // txtPort3
+            // 
+            this.txtPort3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort3.Location = new System.Drawing.Point(657, 27);
+            this.txtPort3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort3.Name = "txtPort3";
+            this.txtPort3.Size = new System.Drawing.Size(54, 20);
+            this.txtPort3.TabIndex = 91;
+            this.txtPort3.TextChanged += new System.EventHandler(this.txtPort3_TextChanged);
+            this.txtPort3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort3_KeyPress);
+            // 
+            // txtPortIP3
+            // 
+            this.txtPortIP3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP3.Location = new System.Drawing.Point(516, 27);
+            this.txtPortIP3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP3.Name = "txtPortIP3";
+            this.txtPortIP3.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP3.TabIndex = 90;
+            // 
+            // txtPort2
+            // 
+            this.txtPort2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPort2.Location = new System.Drawing.Point(430, 28);
+            this.txtPort2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPort2.Name = "txtPort2";
+            this.txtPort2.Size = new System.Drawing.Size(54, 20);
+            this.txtPort2.TabIndex = 89;
+            this.txtPort2.TextChanged += new System.EventHandler(this.txtPort2_TextChanged);
+            this.txtPort2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort2_KeyPress);
+            // 
+            // txtPortIP2
+            // 
+            this.txtPortIP2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPortIP2.Location = new System.Drawing.Point(289, 27);
+            this.txtPortIP2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPortIP2.Name = "txtPortIP2";
+            this.txtPortIP2.Size = new System.Drawing.Size(135, 20);
+            this.txtPortIP2.TabIndex = 88;
             // 
             // txtPort
             // 
@@ -994,6 +1342,8 @@
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(54, 20);
             this.txtPort.TabIndex = 87;
+            this.txtPort.TextChanged += new System.EventHandler(this.txtPort_TextChanged);
+            this.txtPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort_KeyPress);
             // 
             // lbl10Port
             // 
@@ -1129,338 +1479,11 @@
             this.lblPortSettings.AutoSize = true;
             this.lblPortSettings.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPortSettings.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPortSettings.Location = new System.Drawing.Point(537, 3);
+            this.lblPortSettings.Location = new System.Drawing.Point(537, 4);
             this.lblPortSettings.Name = "lblPortSettings";
             this.lblPortSettings.Size = new System.Drawing.Size(143, 25);
             this.lblPortSettings.TabIndex = 66;
             this.lblPortSettings.Text = "Port Settings";
-            // 
-            // txtPort2
-            // 
-            this.txtPort2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort2.Location = new System.Drawing.Point(430, 28);
-            this.txtPort2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort2.Name = "txtPort2";
-            this.txtPort2.Size = new System.Drawing.Size(54, 20);
-            this.txtPort2.TabIndex = 89;
-            // 
-            // txtPortIP2
-            // 
-            this.txtPortIP2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP2.Location = new System.Drawing.Point(289, 27);
-            this.txtPortIP2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP2.Name = "txtPortIP2";
-            this.txtPortIP2.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP2.TabIndex = 88;
-            // 
-            // txtPort3
-            // 
-            this.txtPort3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort3.Location = new System.Drawing.Point(657, 27);
-            this.txtPort3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort3.Name = "txtPort3";
-            this.txtPort3.Size = new System.Drawing.Size(54, 20);
-            this.txtPort3.TabIndex = 91;
-            // 
-            // txtPortIP3
-            // 
-            this.txtPortIP3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP3.Location = new System.Drawing.Point(516, 27);
-            this.txtPortIP3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP3.Name = "txtPortIP3";
-            this.txtPortIP3.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP3.TabIndex = 90;
-            // 
-            // txtPort4
-            // 
-            this.txtPort4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort4.Location = new System.Drawing.Point(883, 27);
-            this.txtPort4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort4.Name = "txtPort4";
-            this.txtPort4.Size = new System.Drawing.Size(54, 20);
-            this.txtPort4.TabIndex = 93;
-            // 
-            // txtPortIP4
-            // 
-            this.txtPortIP4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP4.Location = new System.Drawing.Point(742, 27);
-            this.txtPortIP4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP4.Name = "txtPortIP4";
-            this.txtPortIP4.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP4.TabIndex = 92;
-            // 
-            // txtPort5
-            // 
-            this.txtPort5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort5.Location = new System.Drawing.Point(1110, 28);
-            this.txtPort5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort5.Name = "txtPort5";
-            this.txtPort5.Size = new System.Drawing.Size(54, 20);
-            this.txtPort5.TabIndex = 95;
-            // 
-            // txtPortIP5
-            // 
-            this.txtPortIP5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP5.Location = new System.Drawing.Point(969, 28);
-            this.txtPortIP5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP5.Name = "txtPortIP5";
-            this.txtPortIP5.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP5.TabIndex = 94;
-            // 
-            // txtPort6
-            // 
-            this.txtPort6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort6.Location = new System.Drawing.Point(200, 67);
-            this.txtPort6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort6.Name = "txtPort6";
-            this.txtPort6.Size = new System.Drawing.Size(54, 20);
-            this.txtPort6.TabIndex = 97;
-            // 
-            // txtPortIP6
-            // 
-            this.txtPortIP6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP6.Location = new System.Drawing.Point(59, 67);
-            this.txtPortIP6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP6.Name = "txtPortIP6";
-            this.txtPortIP6.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP6.TabIndex = 96;
-            // 
-            // txtPort7
-            // 
-            this.txtPort7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort7.Location = new System.Drawing.Point(431, 67);
-            this.txtPort7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort7.Name = "txtPort7";
-            this.txtPort7.Size = new System.Drawing.Size(54, 20);
-            this.txtPort7.TabIndex = 99;
-            // 
-            // txtPortIP7
-            // 
-            this.txtPortIP7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP7.Location = new System.Drawing.Point(290, 67);
-            this.txtPortIP7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP7.Name = "txtPortIP7";
-            this.txtPortIP7.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP7.TabIndex = 98;
-            // 
-            // txtPort8
-            // 
-            this.txtPort8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort8.Location = new System.Drawing.Point(658, 66);
-            this.txtPort8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort8.Name = "txtPort8";
-            this.txtPort8.Size = new System.Drawing.Size(54, 20);
-            this.txtPort8.TabIndex = 101;
-            // 
-            // txtPortIP8
-            // 
-            this.txtPortIP8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP8.Location = new System.Drawing.Point(517, 66);
-            this.txtPortIP8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP8.Name = "txtPortIP8";
-            this.txtPortIP8.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP8.TabIndex = 100;
-            // 
-            // txtPort9
-            // 
-            this.txtPort9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort9.Location = new System.Drawing.Point(884, 67);
-            this.txtPort9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort9.Name = "txtPort9";
-            this.txtPort9.Size = new System.Drawing.Size(54, 20);
-            this.txtPort9.TabIndex = 103;
-            // 
-            // txtPortIP9
-            // 
-            this.txtPortIP9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP9.Location = new System.Drawing.Point(743, 67);
-            this.txtPortIP9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP9.Name = "txtPortIP9";
-            this.txtPortIP9.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP9.TabIndex = 102;
-            // 
-            // txtPort10
-            // 
-            this.txtPort10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPort10.Location = new System.Drawing.Point(1124, 66);
-            this.txtPort10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPort10.Name = "txtPort10";
-            this.txtPort10.Size = new System.Drawing.Size(54, 20);
-            this.txtPort10.TabIndex = 105;
-            // 
-            // txtPortIP10
-            // 
-            this.txtPortIP10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPortIP10.Location = new System.Drawing.Point(983, 66);
-            this.txtPortIP10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPortIP10.Name = "txtPortIP10";
-            this.txtPortIP10.Size = new System.Drawing.Size(135, 20);
-            this.txtPortIP10.TabIndex = 104;
-            // 
-            // lblIPHostname
-            // 
-            this.lblIPHostname.AutoSize = true;
-            this.lblIPHostname.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname.Location = new System.Drawing.Point(102, 48);
-            this.lblIPHostname.Name = "lblIPHostname";
-            this.lblIPHostname.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname.TabIndex = 87;
-            this.lblIPHostname.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname2
-            // 
-            this.lblIPHostname2.AutoSize = true;
-            this.lblIPHostname2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname2.Location = new System.Drawing.Point(329, 49);
-            this.lblIPHostname2.Name = "lblIPHostname2";
-            this.lblIPHostname2.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname2.TabIndex = 88;
-            this.lblIPHostname2.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname3
-            // 
-            this.lblIPHostname3.AutoSize = true;
-            this.lblIPHostname3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname3.Location = new System.Drawing.Point(559, 49);
-            this.lblIPHostname3.Name = "lblIPHostname3";
-            this.lblIPHostname3.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname3.TabIndex = 89;
-            this.lblIPHostname3.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname4
-            // 
-            this.lblIPHostname4.AutoSize = true;
-            this.lblIPHostname4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname4.Location = new System.Drawing.Point(779, 49);
-            this.lblIPHostname4.Name = "lblIPHostname4";
-            this.lblIPHostname4.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname4.TabIndex = 90;
-            this.lblIPHostname4.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname5
-            // 
-            this.lblIPHostname5.AutoSize = true;
-            this.lblIPHostname5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname5.Location = new System.Drawing.Point(1008, 48);
-            this.lblIPHostname5.Name = "lblIPHostname5";
-            this.lblIPHostname5.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname5.TabIndex = 91;
-            this.lblIPHostname5.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname6
-            // 
-            this.lblIPHostname6.AutoSize = true;
-            this.lblIPHostname6.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname6.Location = new System.Drawing.Point(69, 49);
-            this.lblIPHostname6.Name = "lblIPHostname6";
-            this.lblIPHostname6.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname6.TabIndex = 106;
-            this.lblIPHostname6.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname7
-            // 
-            this.lblIPHostname7.AutoSize = true;
-            this.lblIPHostname7.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname7.Location = new System.Drawing.Point(299, 49);
-            this.lblIPHostname7.Name = "lblIPHostname7";
-            this.lblIPHostname7.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname7.TabIndex = 107;
-            this.lblIPHostname7.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname8
-            // 
-            this.lblIPHostname8.AutoSize = true;
-            this.lblIPHostname8.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname8.Location = new System.Drawing.Point(531, 49);
-            this.lblIPHostname8.Name = "lblIPHostname8";
-            this.lblIPHostname8.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname8.TabIndex = 108;
-            this.lblIPHostname8.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname9
-            // 
-            this.lblIPHostname9.AutoSize = true;
-            this.lblIPHostname9.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname9.Location = new System.Drawing.Point(752, 49);
-            this.lblIPHostname9.Name = "lblIPHostname9";
-            this.lblIPHostname9.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname9.TabIndex = 109;
-            this.lblIPHostname9.Text = "IP / HOSTNAME";
-            // 
-            // lblIPHostname10
-            // 
-            this.lblIPHostname10.AutoSize = true;
-            this.lblIPHostname10.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIPHostname10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblIPHostname10.Location = new System.Drawing.Point(983, 49);
-            this.lblIPHostname10.Name = "lblIPHostname10";
-            this.lblIPHostname10.Size = new System.Drawing.Size(110, 16);
-            this.lblIPHostname10.TabIndex = 110;
-            this.lblIPHostname10.Text = "IP / HOSTNAME";
-            // 
-            // lblPort
-            // 
-            this.lblPort.AutoSize = true;
-            this.lblPort.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPort.Location = new System.Drawing.Point(207, 49);
-            this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(42, 16);
-            this.lblPort.TabIndex = 111;
-            this.lblPort.Text = "PORT";
-            // 
-            // lblPort2
-            // 
-            this.lblPort2.AutoSize = true;
-            this.lblPort2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPort2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPort2.Location = new System.Drawing.Point(437, 49);
-            this.lblPort2.Name = "lblPort2";
-            this.lblPort2.Size = new System.Drawing.Size(42, 16);
-            this.lblPort2.TabIndex = 112;
-            this.lblPort2.Text = "PORT";
-            // 
-            // lblPort3
-            // 
-            this.lblPort3.AutoSize = true;
-            this.lblPort3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPort3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPort3.Location = new System.Drawing.Point(664, 49);
-            this.lblPort3.Name = "lblPort3";
-            this.lblPort3.Size = new System.Drawing.Size(42, 16);
-            this.lblPort3.TabIndex = 113;
-            this.lblPort3.Text = "PORT";
-            // 
-            // lblPort4
-            // 
-            this.lblPort4.AutoSize = true;
-            this.lblPort4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPort4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPort4.Location = new System.Drawing.Point(890, 49);
-            this.lblPort4.Name = "lblPort4";
-            this.lblPort4.Size = new System.Drawing.Size(42, 16);
-            this.lblPort4.TabIndex = 114;
-            this.lblPort4.Text = "PORT";
-            // 
-            // lblPort5
-            // 
-            this.lblPort5.AutoSize = true;
-            this.lblPort5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPort5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblPort5.Location = new System.Drawing.Point(1124, 49);
-            this.lblPort5.Name = "lblPort5";
-            this.lblPort5.Size = new System.Drawing.Size(42, 16);
-            this.lblPort5.TabIndex = 115;
-            this.lblPort5.Text = "PORT";
             // 
             // Form1
             // 

@@ -7,9 +7,8 @@ namespace Blats_Checker_Notifier
     {
         System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
-        int minutes = 0;
-        int seconds = 60;
-        public bool dark, light;
+        int minutes = 0, seconds = 60;
+        bool dark = false, light = false;
 
 
         public Form1()
@@ -21,6 +20,175 @@ namespace Blats_Checker_Notifier
             InitTimer();
             InitTimer2();
         }
+
+        #region txtBoxes Accept numbers
+        private void txtPortTool2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPortTool2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPortTool2.Text, "[^0-9]"))
+            {
+                txtPortTool2.Text = string.Empty;
+            }
+        }
+        private void txtPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+        private void txtPort_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort.Text, "[^0-9]"))
+            {
+                txtPort.Text = string.Empty;
+            }
+        }
+
+        private void txtPort2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort2.Text, "[^0-9]"))
+            {
+                txtPort2.Text = string.Empty;
+            }
+        }
+
+        private void txtPort3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort3_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort3.Text, "[^0-9]"))
+            {
+                txtPort3.Text = string.Empty;
+            }
+        }
+
+        private void txtPort4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort4_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort4.Text, "[^0-9]"))
+            {
+                txtPort4.Text = string.Empty;
+            }
+        }
+
+        private void txtPort5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort5_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort5.Text, "[^0-9]"))
+            {
+                txtPort5.Text = string.Empty;
+            }
+        }
+
+        private void txtPort6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort6_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort6.Text, "[^0-9]"))
+            {
+                txtPort6.Text = string.Empty;
+            }
+        }
+
+        private void txtPort7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort7_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort7.Text, "[^0-9]"))
+            {
+                txtPort7.Text = string.Empty;
+            }
+        }
+
+        private void txtPort8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort8_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort8.Text, "[^0-9]"))
+            {
+                txtPort8.Text = string.Empty;
+            }
+        }
+
+        private void txtPort9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort9_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort9.Text, "[^0-9]"))
+            {
+                txtPort9.Text = string.Empty;
+            }
+        }
+
+        private void txtPort10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtPort10_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPort10.Text, "[^0-9]"))
+            {
+                txtPort10.Text = string.Empty;
+            }
+        }
+        #endregion
+
 
         #region Form Gui Settings
         private void btnClose_MouseHover(object sender, EventArgs e)
@@ -120,12 +288,10 @@ namespace Blats_Checker_Notifier
                 panelPort.Width = 1208;
             }
         }
-
         #endregion
 
 
         #region Checker & Timers
-
         public void InitTimer()
         {
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -195,7 +361,6 @@ namespace Blats_Checker_Notifier
 
 
         #region Tools
-
         private void EmailSender()
         {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
@@ -289,11 +454,6 @@ namespace Blats_Checker_Notifier
 
         }
 
-        private void panelPort_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void DropDownSelector_SelectedValueChanged(object sender, EventArgs e)
         {
             if (DropDownSelector.SelectedIndex == 0)
@@ -361,9 +521,119 @@ namespace Blats_Checker_Notifier
                 txtPortTool2.Text = "5900";
             }
         }
-
         #endregion
 
+        #region Save & Load
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // adding the path where the folder and the text file save button will create
+            string folderPath = @"C:\Blats-Notifier"; 
+            string filePath = @"C:\Blats-Notifier\MySettings.txt";
+            //checking if there are empty fields before saving
+            if (txtEmailFrom.Text == "" || txtEmailPassFrom.Text == "" || txtEmailTo.Text == "")
+            {
+                lblResultPingTool.Text = "All fields in the email settings must be completed.";
+            }
+            else
+            {
+                //checking if both ip and port fields are completed.
+                if(txtPortIP.Text != "" && txtPort.Text == "" || txtPortIP.Text == "" && txtPort.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP2.Text != "" && txtPort2.Text == "" || txtPortIP2.Text == "" && txtPort2.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP3.Text != "" && txtPort3.Text == "" || txtPortIP3.Text == "" && txtPort3.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP4.Text != "" && txtPort4.Text == "" || txtPortIP4.Text == "" && txtPort4.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP5.Text != "" && txtPort5.Text == "" || txtPortIP5.Text == "" && txtPort5.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP6.Text != "" && txtPort6.Text == "" || txtPortIP6.Text == "" && txtPort6.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP7.Text != "" && txtPort7.Text == "" || txtPortIP7.Text == "" && txtPort7.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP8.Text != "" && txtPort8.Text == "" || txtPortIP8.Text == "" && txtPort8.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP9.Text != "" && txtPort9.Text == "" || txtPortIP9.Text == "" && txtPort9.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else if (txtPortIP10.Text != "" && txtPort10.Text == "" || txtPortIP10.Text == "" && txtPort10.Text != "")
+                {
+                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                }
+                else
+                {
+                    System.IO.Directory.CreateDirectory(folderPath);
+                    string[] contents = new string[35];
+                    if (dark == true)
+                    {
+                        contents[0] = "true";
+                    }
+                    else
+                    {
+                        contents[0] = "false";
+                    }
+                    contents[1] = txtEmailFrom.Text;  contents[2] = txtEmailPassFrom.Text; contents[3] = txtEmailTo.Text;
+
+                    if (!File.Exists(filePath))
+                    {
+                        var MySettings = File.Create(filePath);
+                        MySettings.Close();
+                        File.WriteAllLines(filePath, contents);
+                    }
+                    else
+                    {
+                        File.WriteAllLines(filePath, contents);
+                    }
+                    lblResultPingTool.Text = "Settings saved successfully!";
+                }
+                
+
+            }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            string filePath = @"C:\Blats-Notifier\MySettings.txt";
+            string[] MySettings = File.ReadAllLines(filePath);
+
+            if (MySettings[0] == "true")
+            {
+                dark = true;
+                light = false;
+                BackColor = SystemColors.WindowFrame;
+                panelSettings.BackColor = Color.FromArgb(76, 87, 146);
+                panelPing.BackColor = Color.FromArgb(76, 87, 146);
+                panelPort.BackColor = Color.FromArgb(76, 87, 146);
+            }
+            else
+            {
+                light = true;
+                dark = false;
+                BackColor = SystemColors.Control;
+                panelSettings.BackColor = SystemColors.InactiveCaption;
+                panelPing.BackColor = SystemColors.InactiveCaption;
+                panelPort.BackColor = SystemColors.InactiveCaption;
+            }
+
+        }
+        #endregion
 
     }
 }
