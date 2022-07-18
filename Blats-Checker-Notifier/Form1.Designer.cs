@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.lblTimeSelector = new System.Windows.Forms.Label();
+            this.DropDownTimeSelector = new System.Windows.Forms.ComboBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panelTitle4 = new System.Windows.Forms.Panel();
@@ -260,6 +262,8 @@
             // panelSettings
             // 
             this.panelSettings.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelSettings.Controls.Add(this.lblTimeSelector);
+            this.panelSettings.Controls.Add(this.DropDownTimeSelector);
             this.panelSettings.Controls.Add(this.btnLoad);
             this.panelSettings.Controls.Add(this.btnSave);
             this.panelSettings.Controls.Add(this.panelTitle4);
@@ -282,8 +286,40 @@
             this.panelSettings.Location = new System.Drawing.Point(2, 29);
             this.panelSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(199, 563);
+            this.panelSettings.Size = new System.Drawing.Size(199, 605);
             this.panelSettings.TabIndex = 16;
+            // 
+            // lblTimeSelector
+            // 
+            this.lblTimeSelector.AutoSize = true;
+            this.lblTimeSelector.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTimeSelector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
+            this.lblTimeSelector.Location = new System.Drawing.Point(42, 412);
+            this.lblTimeSelector.Name = "lblTimeSelector";
+            this.lblTimeSelector.Size = new System.Drawing.Size(110, 18);
+            this.lblTimeSelector.TabIndex = 64;
+            this.lblTimeSelector.Text = "Time Selector";
+            // 
+            // DropDownTimeSelector
+            // 
+            this.DropDownTimeSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DropDownTimeSelector.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DropDownTimeSelector.FormattingEnabled = true;
+            this.DropDownTimeSelector.Items.AddRange(new object[] {
+            "1 - Minute",
+            "3 - Minutes",
+            "5 - Minutes",
+            "10 - Minutes",
+            "15 - Minutes",
+            "20 - Minutes",
+            "30 - Minutes",
+            "60 - Minutes(Hour)"});
+            this.DropDownTimeSelector.Location = new System.Drawing.Point(3, 432);
+            this.DropDownTimeSelector.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DropDownTimeSelector.Name = "DropDownTimeSelector";
+            this.DropDownTimeSelector.Size = new System.Drawing.Size(192, 26);
+            this.DropDownTimeSelector.TabIndex = 63;
+            this.DropDownTimeSelector.SelectedValueChanged += new System.EventHandler(this.DropDownTimeSelector_SelectedValueChanged);
             // 
             // btnLoad
             // 
@@ -293,7 +329,7 @@
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.btnLoad.Location = new System.Drawing.Point(110, 518);
+            this.btnLoad.Location = new System.Drawing.Point(110, 560);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(85, 38);
@@ -310,7 +346,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.btnSave.Location = new System.Drawing.Point(8, 518);
+            this.btnSave.Location = new System.Drawing.Point(8, 560);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 38);
@@ -322,7 +358,7 @@
             // panelTitle4
             // 
             this.panelTitle4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panelTitle4.Location = new System.Drawing.Point(-9, 491);
+            this.panelTitle4.Location = new System.Drawing.Point(-9, 533);
             this.panelTitle4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTitle4.Name = "panelTitle4";
             this.panelTitle4.Size = new System.Drawing.Size(216, 19);
@@ -336,7 +372,7 @@
             this.btnPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPort.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.btnPort.Location = new System.Drawing.Point(0, 455);
+            this.btnPort.Location = new System.Drawing.Point(0, 501);
             this.btnPort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPort.Name = "btnPort";
             this.btnPort.Size = new System.Drawing.Size(199, 33);
@@ -353,7 +389,7 @@
             this.btnPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPing.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.btnPing.Location = new System.Drawing.Point(0, 414);
+            this.btnPing.Location = new System.Drawing.Point(0, 461);
             this.btnPing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPing.Name = "btnPing";
             this.btnPing.Size = new System.Drawing.Size(199, 33);
@@ -371,6 +407,7 @@
             this.txtEmailPassFrom.PasswordChar = '*';
             this.txtEmailPassFrom.Size = new System.Drawing.Size(194, 20);
             this.txtEmailPassFrom.TabIndex = 2;
+            this.txtEmailPassFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblSenderPass
             // 
@@ -429,6 +466,7 @@
             this.txtEmailTo.Name = "txtEmailTo";
             this.txtEmailTo.Size = new System.Drawing.Size(194, 20);
             this.txtEmailTo.TabIndex = 3;
+            this.txtEmailTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblEmailTo
             // 
@@ -460,6 +498,7 @@
             this.txtEmailFrom.Name = "txtEmailFrom";
             this.txtEmailFrom.Size = new System.Drawing.Size(194, 20);
             this.txtEmailFrom.TabIndex = 1;
+            this.txtEmailFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblEmails
             // 
@@ -712,7 +751,7 @@
             this.panelPing.Controls.Add(this.txtPing1);
             this.panelPing.Controls.Add(this.lbl1Ping);
             this.panelPing.Controls.Add(this.panelTitle5);
-            this.panelPing.Location = new System.Drawing.Point(-3, 593);
+            this.panelPing.Location = new System.Drawing.Point(-3, 636);
             this.panelPing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelPing.Name = "panelPing";
             this.panelPing.Size = new System.Drawing.Size(1208, 94);
@@ -1038,7 +1077,7 @@
             this.panelPort.Controls.Add(this.txtPortIP);
             this.panelPort.Controls.Add(this.lbl1Port);
             this.panelPort.Controls.Add(this.panel2);
-            this.panelPort.Location = new System.Drawing.Point(-4, 690);
+            this.panelPort.Location = new System.Drawing.Point(-4, 733);
             this.panelPort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelPort.Name = "panelPort";
             this.panelPort.Size = new System.Drawing.Size(1208, 95);
@@ -1647,5 +1686,7 @@
         private Label lblPort3;
         private Label lblPort2;
         private Label lblPort;
+        private ComboBox DropDownTimeSelector;
+        private Label lblTimeSelector;
     }
 }

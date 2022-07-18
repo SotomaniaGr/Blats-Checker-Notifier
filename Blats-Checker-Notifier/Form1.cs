@@ -1,13 +1,14 @@
 using System.Net.NetworkInformation;
 using System.Net;
 using System.Net.Mail;
+using System.Timers;
 namespace Blats_Checker_Notifier
 {
     public partial class Form1 : Form
     {
         System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
-        int minutes = 0, seconds = 60;
+        int minutes = 4, seconds = 60;
         bool dark = false, light = false;
 
 
@@ -18,7 +19,6 @@ namespace Blats_Checker_Notifier
             panelPing.Width = 0;
             panelPort.Width = 0;
             InitTimer();
-            InitTimer2();
         }
 
         #region txtBoxes Accept numbers
@@ -223,7 +223,7 @@ namespace Blats_Checker_Notifier
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            if (panelSettings.Height == 563)
+            if (panelSettings.Height == 605)
             {
                 panelSettings.Height = 0;
                 panelPing.Width = 0;
@@ -231,7 +231,7 @@ namespace Blats_Checker_Notifier
             }
             else
             {
-                panelSettings.Height = 563;
+                panelSettings.Height = 605;
             }
         }
 
@@ -295,14 +295,57 @@ namespace Blats_Checker_Notifier
         public void InitTimer()
         {
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 300000; // in miliseconds
+            timer1.Interval = 1000; // in miliseconds
             timer1.Start();
         }
 
         public void timer1_Tick(object sender, EventArgs e)
         {
-            ScriptChecker();
-            InitTimer2();
+            if (minutes > 0 && seconds > 0)
+            {
+                CountdownTimer();
+            }
+            if (minutes == 0 && seconds > 0)
+            {
+                CountdownTimer();
+            }
+            else if (minutes == 0 && seconds == 0)
+            {
+                if (DropDownTimeSelector.SelectedIndex == 0)
+                { 
+                    minutes = 0;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 1)
+                {
+                    minutes = 2;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 2)
+                {
+                    minutes = 4;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 3)
+                {
+                    minutes = 9;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 4)
+                {
+                    minutes = 14;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 5)
+                {
+                    minutes = 19;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 6)
+                {
+                    minutes = 29;
+                }
+                if (DropDownTimeSelector.SelectedIndex == 7)
+                {
+                    minutes = 59;
+                }
+                seconds = 60;
+                CountdownTimer();
+            }
         }
 
         public void ScriptChecker()
@@ -310,24 +353,10 @@ namespace Blats_Checker_Notifier
             //edw tha mpoun ta scripts
         }
 
-        public void InitTimer2()
-        {
-
-            timer2.Tick += new EventHandler(timer2_Tick);
-            timer2.Interval = 1000; // in miliseconds
-            timer2.Start();
-        }
-
-        public void timer2_Tick(object sender, EventArgs e)
-        {
-            CountdownTimer();
-        }
-
         public void CountdownTimer()
         {
-
             seconds--;
-            if (minutes < 9)
+            if (minutes <= 9)
             {
                 lblChecker.Text = "Next check in: 0" + minutes + ":" + seconds;
             }
@@ -350,9 +379,7 @@ namespace Blats_Checker_Notifier
                 }
                 else
                 {
-                    timer2.Stop();
-                    lblChecker.Text = ("Status OK!");
-                    EmailSender();
+                    lblResultPingTool.Text = ("Status OK!");
                 }
             }
         }
@@ -521,6 +548,42 @@ namespace Blats_Checker_Notifier
                 txtPortTool2.Text = "5900";
             }
         }
+
+        private void DropDownTimeSelector_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (DropDownTimeSelector.SelectedIndex == 0)
+            {
+                minutes = 0;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 1)
+            {
+                minutes = 2;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 2)
+            {
+                minutes = 4;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 3)
+            {
+                minutes = 9;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 4)
+            {
+                minutes = 14;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 5)
+            {
+                minutes = 19;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 6)
+            {
+                minutes = 29;
+            }
+            if (DropDownTimeSelector.SelectedIndex == 7)
+            {
+                minutes = 59;
+            }
+        }
         #endregion
 
         #region Save & Load
@@ -580,7 +643,7 @@ namespace Blats_Checker_Notifier
                 else
                 {
                     System.IO.Directory.CreateDirectory(folderPath);
-                    string[] contents = new string[35];
+                    string[] contents = new string[37];
                     if (dark == true)
                     {
                         contents[0] = "true";
@@ -589,8 +652,24 @@ namespace Blats_Checker_Notifier
                     {
                         contents[0] = "false";
                     }
-                    contents[1] = txtEmailFrom.Text;  contents[2] = txtEmailPassFrom.Text; contents[3] = txtEmailTo.Text;
-
+                    contents[1] = minutes.ToString(); contents[2] = txtEmailFrom.Text; 
+                    contents[3] = txtEmailPassFrom.Text; contents[4] = txtEmailTo.Text; 
+                    contents[5] = txtPing1.Text; contents[6] = txtPing2.Text; 
+                    contents[7] = txtPing3.Text; contents[8] = txtPing4.Text; 
+                    contents[9] = txtPing5.Text; contents[10] = txtPing6.Text; 
+                    contents[11] = txtPing7.Text; contents[12] = txtPing8.Text; 
+                    contents[13] = txtPing9.Text; contents[14] = txtPing10.Text;
+                    contents[15] = txtPortIP.Text; contents[16] = txtPort.Text;
+                    contents[17] = txtPortIP2.Text; contents[18] = txtPort2.Text;
+                    contents[19] = txtPortIP3.Text; contents[20] = txtPort3.Text;
+                    contents[21] = txtPortIP4.Text; contents[22] = txtPort4.Text;
+                    contents[23] = txtPortIP5.Text; contents[24] = txtPort5.Text;
+                    contents[25] = txtPortIP6.Text; contents[26] = txtPort6.Text;
+                    contents[27] = txtPortIP7.Text; contents[28] = txtPort7.Text;
+                    contents[29] = txtPortIP8.Text; contents[30] = txtPort8.Text;
+                    contents[31] = txtPortIP9.Text; contents[32] = txtPort9.Text;
+                    contents[33] = txtPortIP10.Text; contents[34] = txtPort10.Text;
+                    contents[35] = DropDownTimeSelector.SelectedIndex.ToString();
                     if (!File.Exists(filePath))
                     {
                         var MySettings = File.Create(filePath);
@@ -612,7 +691,6 @@ namespace Blats_Checker_Notifier
         {
             string filePath = @"C:\Blats-Notifier\MySettings.txt";
             string[] MySettings = File.ReadAllLines(filePath);
-
             if (MySettings[0] == "true")
             {
                 dark = true;
@@ -631,7 +709,24 @@ namespace Blats_Checker_Notifier
                 panelPing.BackColor = SystemColors.InactiveCaption;
                 panelPort.BackColor = SystemColors.InactiveCaption;
             }
-
+            minutes = Int32.Parse(MySettings[1]); txtEmailFrom.Text = MySettings[2];
+            txtEmailPassFrom.Text = MySettings[3]; txtEmailTo.Text = MySettings[4];
+            txtPing1.Text = MySettings[5]; txtPing2.Text = MySettings[6];
+            txtPing3.Text = MySettings[7]; txtPing4.Text = MySettings[8];
+            txtPing5.Text = MySettings[9]; txtPing6.Text = MySettings[10];
+            txtPing7.Text = MySettings[11]; txtPing8.Text = MySettings[12];
+            txtPing9.Text = MySettings[13]; txtPing10.Text = MySettings[14];
+            txtPortIP.Text = MySettings[15]; txtPort.Text = MySettings[16];
+            txtPortIP2.Text = MySettings[17]; txtPort2.Text = MySettings[18];
+            txtPortIP3.Text = MySettings[19]; txtPort3.Text = MySettings[20];
+            txtPortIP4.Text = MySettings[21]; txtPort4.Text = MySettings[22];
+            txtPortIP5.Text = MySettings[23]; txtPort5.Text = MySettings[24];
+            txtPortIP6.Text = MySettings[25]; txtPort6.Text = MySettings[26];
+            txtPortIP7.Text = MySettings[27]; txtPort7.Text = MySettings[28];
+            txtPortIP8.Text = MySettings[29]; txtPort8.Text = MySettings[30];
+            txtPortIP9.Text = MySettings[31]; txtPort9.Text = MySettings[32];
+            txtPortIP10.Text = MySettings[33]; txtPort10.Text = MySettings[34];
+            DropDownTimeSelector.SelectedIndex = Int32.Parse(MySettings[35]);
         }
         #endregion
 
