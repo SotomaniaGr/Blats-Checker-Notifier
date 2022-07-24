@@ -223,7 +223,7 @@ namespace Blats_Checker_Notifier
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            if (panelSettings.Height == 605)
+            if (panelSettings.Height == 454)
             {
                 panelSettings.Height = 0;
                 panelPing.Width = 0;
@@ -231,7 +231,7 @@ namespace Blats_Checker_Notifier
             }
             else
             {
-                panelSettings.Height = 605;
+                panelSettings.Height = 454;
             }
         }
 
@@ -345,12 +345,14 @@ namespace Blats_Checker_Notifier
                 }
                 seconds = 60;
                 CountdownTimer();
+                ScriptChecker();
             }
         }
 
         public void ScriptChecker()
         {
             //edw tha mpoun ta scripts
+            automation();
         }
 
         public void CountdownTimer()
@@ -388,7 +390,7 @@ namespace Blats_Checker_Notifier
 
 
         #region Tools
-        private void EmailSender()
+        public void EmailSender()
         {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             try
@@ -403,10 +405,10 @@ namespace Blats_Checker_Notifier
 
                 newMail.To.Add(txtEmailTo.Text);
 
-                newMail.Subject = "My First Email"; // declare the email subject
+                newMail.Subject = "An error has been detected on one of your servers"; // declare the email subject
 
-                newMail.IsBodyHtml = true; newMail.Body = "<h1> This is my first Templated Email in C# </h1>"; // use HTML for the email body
-
+                //newMail.IsBodyHtml = true; newMail.Body = "<h1> This is my first Templated Email in C# </h1>"; // use HTML for the email body
+                newMail.IsBodyHtml = true; newMail.Body = ""; // use HTML for the email body
 
                 // enable SSL for encryption across channels
                 client.EnableSsl = true;
@@ -586,6 +588,7 @@ namespace Blats_Checker_Notifier
         }
         #endregion
 
+
         #region Save & Load
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -730,5 +733,49 @@ namespace Blats_Checker_Notifier
         }
         #endregion
 
+
+        #region Automation
+
+        private void automation()
+        {
+            bool[] ping = new bool[9];
+            bool[] port = new bool[9];
+            string[] pingR = new string[9];
+            int i;
+            for (i= 0; i< 9; i++)
+            {
+                try
+                {
+                    Ping p = new Ping();
+                    PingReply r;
+                    string[] s = new string[] { txtPing1.Text, txtPing2.Text, txtPing3.Text, txtPing4.Text, txtPing5.Text, txtPing6.Text, txtPing7.Text, 
+                                                txtPing8.Text, txtPing9.Text, txtPing10.Text };
+                    if (s[i] == "")
+                    {
+                        port[i] = true;
+                    }
+                    r = p.Send(s[i]);
+                    if (r.Status == IPStatus.Success)
+                    {
+                        port[i] = true;
+                    }
+                    else
+                    {
+                        port[i] = false;
+                    }
+                }
+                catch
+                {
+                    //nothing to catch!
+                }
+            }
+            foreach(bool res in port)
+                if(res == false)
+           lblResultPingTool.Text = port[0].ToString() + port[1].ToString() + port[2].ToString() + port[3].ToString() + port[4].ToString();
+
+        }
+
+
+        #endregion
     }
 }
