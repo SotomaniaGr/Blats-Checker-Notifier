@@ -738,40 +738,94 @@ namespace Blats_Checker_Notifier
 
         private void automation()
         {
+            int i = 0, j = 0, y = 0, k = 0, l = 0;
             bool[] ping = new bool[9];
             bool[] port = new bool[9];
             string[] pingR = new string[9];
-            int i;
-            for (i= 0; i< 9; i++)
+            string[] portR = new string[9];
+            string[] s = new string[] { txtPing1.Text, txtPing2.Text, txtPing3.Text, txtPing4.Text, txtPing5.Text, txtPing6.Text, txtPing7.Text,
+                                        txtPing8.Text, txtPing9.Text, txtPing10.Text };
+            string[] s1 = new string[] { txtPortIP.Text, txtPortIP2.Text, txtPortIP3.Text, txtPortIP4.Text, txtPortIP5.Text, txtPortIP6.Text, txtPortIP7.Text,
+                                         txtPortIP8.Text,txtPortIP9.Text,txtPortIP10.Text};
+            string[] s2 = new string[] { txtPort.Text, txtPort2.Text, txtPort3.Text, txtPort4.Text, txtPort5.Text, txtPort6.Text, txtPort7.Text,
+                                         txtPort8.Text,txtPort9.Text,txtPort10.Text};
+
+            for (i = 0; i < 9; i++)
             {
                 try
                 {
                     Ping p = new Ping();
                     PingReply r;
-                    string[] s = new string[] { txtPing1.Text, txtPing2.Text, txtPing3.Text, txtPing4.Text, txtPing5.Text, txtPing6.Text, txtPing7.Text, 
-                                                txtPing8.Text, txtPing9.Text, txtPing10.Text };
                     if (s[i] == "")
                     {
-                        port[i] = true;
+                        ping[i] = true;
                     }
                     r = p.Send(s[i]);
                     if (r.Status == IPStatus.Success)
                     {
-                        port[i] = true;
+                        ping[i] = true;
                     }
                     else
                     {
-                        port[i] = false;
+                        ping[i] = false;
                     }
                 }
                 catch
                 {
-                    //nothing to catch!
+                    //we dont need exception!
                 }
             }
-            foreach(bool res in port)
-                if(res == false)
-           lblResultPingTool.Text = port[0].ToString() + port[1].ToString() + port[2].ToString() + port[3].ToString() + port[4].ToString();
+
+            for (j = 0; j < 9; j++)
+            {
+                try
+                {
+                    if (s1[j] == "")
+                    {
+                        port[j] = true;
+                    }
+                    string hostname = s1[j];
+                    int portno = int.Parse(s2[j]);
+                    IPAddress ipa = (IPAddress)Dns.GetHostAddresses(hostname)[j];
+                    System.Net.Sockets.Socket sock = new System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork, System.Net.Sockets.SocketType.Stream, System.Net.Sockets.ProtocolType.Tcp);
+                    sock.Connect(ipa, portno);
+                    if (sock.Connected == true)  // Port is in use and connection is successful
+                    {
+                        port[j] = true;
+                    }
+                    else
+                    {
+                        port[j] = false;
+                    }   
+                    sock.Close();   
+                }
+                catch
+                {
+                   // we dont need exception!
+                }
+            }
+
+            for(y = 0; y < 9; y++)
+            {
+                if (ping[y] == false)
+                {
+                    pingR[k] = "Unreachable IP or Hostname: " + s[y] + " | At Ping tool: " + (y+1) + "\n";
+                    k++;
+                }
+
+                if (port[y] == false)
+                {
+                    portR[l] = "Port is closed or error occured: " + s1[y] + s2[y] + " | At Port tool: " + (y + 1) + "\n";
+                    l++;
+                }
+            }
+            if (pingR[0] == null || pingR[0] == "")
+            {
+                lblResultPingTool.Text = "Array is empty";
+            }
+            else
+                lblResultPingTool.Text = pingR[0];
+            //lblResultPingTool.Text = string.Join("", pingR) + "\n" + string.Join("", portR);
 
         }
 
