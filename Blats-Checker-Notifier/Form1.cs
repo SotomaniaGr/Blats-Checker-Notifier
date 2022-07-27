@@ -10,6 +10,9 @@ namespace Blats_Checker_Notifier
         System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
         int minutes = 4, seconds = 60;
         bool dark = false, light = false;
+        string[] pingR = new string[9];
+        string[] portR = new string[9];
+        string hostName = Dns.GetHostName();
 
 
         public Form1()
@@ -19,6 +22,7 @@ namespace Blats_Checker_Notifier
             panelPing.Width = 0;
             panelPort.Width = 0;
             InitTimer();
+            lblHNIP.Text = "Your current IP: " + Dns.GetHostByName(hostName).AddressList[0].ToString() + " Your Hostname: " + hostName;
         }
 
         #region txtBoxes Accept numbers
@@ -346,6 +350,7 @@ namespace Blats_Checker_Notifier
                 seconds = 60;
                 CountdownTimer();
                 ScriptChecker();
+                lblHNIP.Text = "Your current IP: " + Dns.GetHostByName(hostName).AddressList[0].ToString() + " Your Hostname: " + hostName;
             }
         }
 
@@ -381,7 +386,7 @@ namespace Blats_Checker_Notifier
                 }
                 else
                 {
-                    lblResultPingTool.Text = ("Status OK!");
+                    lblResultPingTool.Text = ("Results: Status OK!");
                 }
             }
         }
@@ -405,10 +410,10 @@ namespace Blats_Checker_Notifier
 
                 newMail.To.Add(txtEmailTo.Text);
 
-                newMail.Subject = "An error has been detected on one of your servers"; // declare the email subject
+                newMail.Subject = "Error(s) has been detected on your server(s)"; // declare the email subject
 
                 //newMail.IsBodyHtml = true; newMail.Body = "<h1> This is my first Templated Email in C# </h1>"; // use HTML for the email body
-                newMail.IsBodyHtml = true; newMail.Body = ""; // use HTML for the email body
+                newMail.IsBodyHtml = true; newMail.Body ="<h1>" + string.Join("", pingR) + "\n" + string.Join("", portR) + "</h1>";// use HTML for the email body
 
                 // enable SSL for encryption across channels
                 client.EnableSsl = true;
@@ -417,8 +422,7 @@ namespace Blats_Checker_Notifier
                 // Provide authentication information with Gmail SMTP server to authenticate your sender account
                 client.Credentials = new System.Net.NetworkCredential(txtEmailFrom.Text, txtEmailPassFrom.Text);
 
-                client.Send(newMail); // Send the constructed mail
-                lblResultPingTool.Text = "An error has been detected on one of your servers. An email was sent successfully.";
+                client.Send(newMail); // Send the constructed mail     
             }
             catch (Exception ex)
             {
@@ -437,16 +441,16 @@ namespace Blats_Checker_Notifier
                 r = p.Send(s);
                 if (r.Status == IPStatus.Success)
                 {
-                    lblResultPingTool.Text = "Ping to " + s.ToString() + "[" + r.Address.ToString() + "]" + " Successful"
+                    lblResultPingTool.Text = "Results: Ping to " + s.ToString() + "[" + r.Address.ToString() + "]" + " Successful"
                        + " Response delay = " + r.RoundtripTime.ToString() + " ms" + "\n";
                 }
             }
             catch
             {
                 if (string.IsNullOrWhiteSpace(txtPingTool.Text) || txtPingTool.Text == "")
-                    lblResultPingTool.Text = "You need to enter ip or hostname. IP field cannot be blank.";
+                    lblResultPingTool.Text = "Results: You need to enter ip or hostname. IP field cannot be blank.";
                 else
-                    lblResultPingTool.Text = "IP or Hostname is not reachable.";
+                    lblResultPingTool.Text = "Results: IP or Hostname is not reachable.";
             }
 
         }
@@ -462,16 +466,16 @@ namespace Blats_Checker_Notifier
                 System.Net.Sockets.Socket sock = new System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork, System.Net.Sockets.SocketType.Stream, System.Net.Sockets.ProtocolType.Tcp);
                 sock.Connect(ipa, portno);
                 if (sock.Connected == true)  // Port is in use and connection is successful
-                    lblResultPingTool.Text = "Checking port "+ txtPortTool2.Text + " at " + txtPortTool.Text + ": Port is Open!";
+                    lblResultPingTool.Text = "Results: Checking port "+ txtPortTool2.Text + " at " + txtPortTool.Text + ": Port is Open!";
                 sock.Close();
 
             }
             catch (System.Net.Sockets.SocketException ex)
             {
                 if (ex.ErrorCode == 10060)  // Port is unused and could not establish connection 
-                    lblResultPingTool.Text = "Checking port " + txtPortTool2.Text + " at " + txtPortTool.Text + ": Port is Closed.";
+                    lblResultPingTool.Text = "Results: Checking port " + txtPortTool2.Text + " at " + txtPortTool.Text + ": Port is Closed.";
                 else
-                    lblResultPingTool.Text = "Error occured with ip/hostname or port.";
+                    lblResultPingTool.Text = "Results: Error occured with ip/hostname or port.";
             }
             catch
             {
@@ -598,50 +602,50 @@ namespace Blats_Checker_Notifier
             //checking if there are empty fields before saving
             if (txtEmailFrom.Text == "" || txtEmailPassFrom.Text == "" || txtEmailTo.Text == "")
             {
-                lblResultPingTool.Text = "All fields in the email settings must be completed.";
+                lblResultPingTool.Text = "Results: All fields in the email settings must be completed.";
             }
             else
             {
                 //checking if both ip and port fields are completed.
                 if(txtPortIP.Text != "" && txtPort.Text == "" || txtPortIP.Text == "" && txtPort.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP2.Text != "" && txtPort2.Text == "" || txtPortIP2.Text == "" && txtPort2.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP3.Text != "" && txtPort3.Text == "" || txtPortIP3.Text == "" && txtPort3.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP4.Text != "" && txtPort4.Text == "" || txtPortIP4.Text == "" && txtPort4.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP5.Text != "" && txtPort5.Text == "" || txtPortIP5.Text == "" && txtPort5.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP6.Text != "" && txtPort6.Text == "" || txtPortIP6.Text == "" && txtPort6.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP7.Text != "" && txtPort7.Text == "" || txtPortIP7.Text == "" && txtPort7.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP8.Text != "" && txtPort8.Text == "" || txtPortIP8.Text == "" && txtPort8.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP9.Text != "" && txtPort9.Text == "" || txtPortIP9.Text == "" && txtPort9.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else if (txtPortIP10.Text != "" && txtPort10.Text == "" || txtPortIP10.Text == "" && txtPort10.Text != "")
                 {
-                    lblResultPingTool.Text = "Both ip and port fields should be completed.";
+                    lblResultPingTool.Text = "Results: Both ip and port fields should be completed.";
                 }
                 else
                 {
@@ -683,7 +687,7 @@ namespace Blats_Checker_Notifier
                     {
                         File.WriteAllLines(filePath, contents);
                     }
-                    lblResultPingTool.Text = "Settings saved successfully!";
+                    lblResultPingTool.Text = "Results: Settings saved successfully!";
                 }
                 
 
@@ -730,6 +734,7 @@ namespace Blats_Checker_Notifier
             txtPortIP9.Text = MySettings[31]; txtPort9.Text = MySettings[32];
             txtPortIP10.Text = MySettings[33]; txtPort10.Text = MySettings[34];
             DropDownTimeSelector.SelectedIndex = Int32.Parse(MySettings[35]);
+            lblResultPingTool.Text = "Results: Settings loaded successfully!";
         }
         #endregion
 
@@ -738,11 +743,11 @@ namespace Blats_Checker_Notifier
 
         private void automation()
         {
+            Array.Clear(pingR);
+            Array.Clear(portR);
             int i = 0, j = 0, y = 0, k = 0, l = 0;
             bool[] ping = new bool[9];
             bool[] port = new bool[9];
-            string[] pingR = new string[9];
-            string[] portR = new string[9];
             string[] s = new string[] { txtPing1.Text, txtPing2.Text, txtPing3.Text, txtPing4.Text, txtPing5.Text, txtPing6.Text, txtPing7.Text,
                                         txtPing8.Text, txtPing9.Text, txtPing10.Text };
             string[] s1 = new string[] { txtPortIP.Text, txtPortIP2.Text, txtPortIP3.Text, txtPortIP4.Text, txtPortIP5.Text, txtPortIP6.Text, txtPortIP7.Text,
@@ -819,17 +824,18 @@ namespace Blats_Checker_Notifier
                     l++;
                 }
             }
-            if (pingR[0] == null || pingR[0] == "")
+            if ((pingR[0] == null || pingR[0] == "") && (portR[0] == null || portR[0] == ""))
             {
-                lblResultPingTool.Text = "Array is empty";
+                lblResultPingTool.Text = "Results: Everything works fine!";
             }
             else
-                lblResultPingTool.Text = pingR[0];
-            //lblResultPingTool.Text = string.Join("", pingR) + "\n" + string.Join("", portR);
-
+            {
+                lblResultPingTool.Text = "Results: Error(s) has been detected on your server(s). An email was sent successfully. \n\nError(s): \n" + string.Join("", pingR) + "\n" + string.Join("", portR);
+                EmailSender();
+            }     
         }
-
-
         #endregion
+
+
     }
 }
