@@ -12,7 +12,6 @@ namespace Blats_Checker_Notifier
         bool dark = false, light = false;
         string[] pingR = new string[9];
         string[] portR = new string[9];
-        string hostName = Dns.GetHostName();
 
 
         public Form1()
@@ -22,7 +21,7 @@ namespace Blats_Checker_Notifier
             panelPing.Width = 0;
             panelPort.Width = 0;
             InitTimer();
-            lblHNIP.Text = "Your current IP: " + Dns.GetHostByName(hostName).AddressList[0].ToString() + " Your Hostname: " + hostName;
+            ipReciever();
         }
 
         #region txtBoxes Accept numbers
@@ -350,7 +349,7 @@ namespace Blats_Checker_Notifier
                 seconds = 60;
                 CountdownTimer();
                 ScriptChecker();
-                lblHNIP.Text = "Your current IP: " + Dns.GetHostByName(hostName).AddressList[0].ToString() + " Your Hostname: " + hostName;
+                ipReciever();
             }
         }
 
@@ -589,6 +588,20 @@ namespace Blats_Checker_Notifier
             {
                 minutes = 59;
             }
+        }
+        
+        private void ipReciever()
+        {
+            string url = "http://checkip.dyndns.org";
+            System.Net.WebRequest req = System.Net.WebRequest.Create(url);
+            System.Net.WebResponse resp = req.GetResponse();
+            System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+            string response = sr.ReadToEnd().Trim();
+            string[] ipAddressWithText = response.Split(':');
+            string ipAddressWithHTMLEnd = ipAddressWithText[1].Substring(1);
+            string[] ipAddress = ipAddressWithHTMLEnd.Split('<');
+            string mainIP = ipAddress[0];
+            lblHNIP.Text = "Your current IP Address: " + mainIP;
         }
         #endregion
 

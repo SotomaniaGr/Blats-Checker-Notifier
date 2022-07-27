@@ -1474,7 +1474,7 @@
             this.lblHNIP.AutoSize = true;
             this.lblHNIP.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHNIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(200)))));
-            this.lblHNIP.Location = new System.Drawing.Point(285, 162);
+            this.lblHNIP.Location = new System.Drawing.Point(394, 162);
             this.lblHNIP.Name = "lblHNIP";
             this.lblHNIP.Size = new System.Drawing.Size(0, 16);
             this.lblHNIP.TabIndex = 27;
